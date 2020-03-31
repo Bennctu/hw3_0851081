@@ -1,11 +1,11 @@
 #include <ros/ros.h>
 #include <cmath>
 #include <Eigen/Dense>
-#include <unsupported/Eigen/MatrixFunctions>
 #include <visualization_msgs/Marker.h>
 #include <iostream>
 
 #include "sensor_msgs/Imu.h"
+#include "imuData.h"
 
 using namespace Eigen;
 using namespace std;
@@ -21,7 +21,7 @@ Vector3d last_position;
 Vector3d lastAccInGlobal;
 MatrixXd C = I;
 
-class IMU_content
+/*class IMU_content
 {
     public:
         IMU_content ()
@@ -41,7 +41,7 @@ class IMU_content
         Vector3d acc;
         Vector3d angular_vel;
         double moment;
-};
+};*/
 void pubodometry(const Eigen::Vector3d &position,const std_msgs::Header &header) {
     visualization_msgs::Marker line_strip;
     line_strip.header.frame_id = "/world";
