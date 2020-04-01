@@ -1,2 +1,2 @@
 # hw3_0851081
-success running
+GT(zed) trajectory is different to that of IMU integration.

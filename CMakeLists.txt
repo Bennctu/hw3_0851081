@@ -136,6 +136,7 @@ include_directories(${EIGEN3_INCLUDE_DIRS})
 # add_executable(${PROJECT_NAME}_node src/IMU_integration_node.cpp)
 add_executable(points_and_lines src/printStrip.cpp)
 add_executable(hw3_node src/hw3_node.cpp)
+add_executable(zed src/zed.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -152,6 +153,7 @@ add_executable(hw3_node src/hw3_node.cpp)
 # )
 target_link_libraries(points_and_lines ${catkin_LIBRARIES})
 target_link_libraries(hw3_node ${catkin_LIBRARIES})
+target_link_libraries(zed ${catkin_LIBRARIES})
 #############
 ## Install ##
 #############
