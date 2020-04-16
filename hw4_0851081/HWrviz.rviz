@@ -8,6 +8,7 @@ Panels:
         - /Status1
         - /Marker1
         - /Marker2
+        - /Marker3
       Splitter Ratio: 0.5
     Tree Height: 775
   - Class: rviz/Selection
@@ -57,7 +58,7 @@ Visualization Manager:
       Marker Topic: /visualization_marker
       Name: Marker
       Namespaces:
-        {}
+        lines: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -65,7 +66,15 @@ Visualization Manager:
       Marker Topic: /GT_path
       Name: Marker
       Namespaces:
-        {}
+        lines2: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /ekf_path
+      Name: Marker
+      Namespaces:
+        lines3: true
       Queue Size: 100
       Value: true
   Enabled: true

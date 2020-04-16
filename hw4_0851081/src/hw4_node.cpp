@@ -13,6 +13,7 @@ using namespace std;
 #define I  MatrixXd::Identity(3,3)
 
 ros::Publisher marker_pub;
+ros::Publisher imu_pub;
 bool init_time = 1;
 vector<Vector3d> positionBuf;
 Vector3d g(0,0,9.81);
@@ -87,6 +88,7 @@ void data_callback(const sensor_msgs::Imu::ConstPtr &msg) {
     
     //Rotate sensor data from body frame to Zed frame
     tfImuToZed(imu_data,imu_data);
+    imu_pub.publish(imu_data);
     IMU_content* IMU_current = new IMU_content(imu_data);
     std_msgs::Header header = imu_data.header;
 
@@ -154,6 +156,7 @@ int main( int argc, char** argv )
     ros::NodeHandle n;
     ros::Subscriber IMU_raw_sub = n.subscribe<sensor_msgs::Imu>("/imu/data",200,data_callback);
     marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 200);
+    imu_pub = n.advertise<sensor_msgs::Imu>("/imu_data",200);
     ros::spin();
     return 0;
 }

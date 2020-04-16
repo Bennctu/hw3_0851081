@@ -136,7 +136,7 @@ include_directories(${EIGEN3_INCLUDE_DIRS})
 ## The recommended prefix ensures that target names across packages don't collide
 
 add_executable(hw4_node src/hw4_node.cpp)
-
+add_executable(zed src/zed.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -151,7 +151,9 @@ add_executable(hw4_node src/hw4_node.cpp)
 target_link_libraries( hw4_node
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries( zed
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
